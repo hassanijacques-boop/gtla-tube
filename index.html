@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTLA Tube — toutes les vidéos pour le BTS Transport & Logistique</title>
+<meta name="description" content="La bibliothèque de vidéos pour le BTS GTLA (Gestion des Transports et Logistique Associée) : transport routier, maritime, douane, stocks, supply chain. Classée à la main.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF6EC; --paper2:#F4ECDC; --ink:#16213C; --ink2:#46506B;
+  --line:#E2D6BF; --card:#FFFDF8;
+  --fr:#0E7490; --ma:#C2410C; --sc:#15803D; --hi:#9B5320; --ge:#0F766E;
+  --em:#65489B; --an:#B93A73; --ar:#C98A12; --nu:#37496B;
+  --shadow:4px 4px 0 var(--ink);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.55;
+  background-image:radial-gradient(#00000008 1px, transparent 1px);background-size:22px 22px}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font-family:inherit}
+
+/* ---------- TOP BAR ---------- */
+.top{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:18px;padding:12px 22px;
+  background:rgba(251,246,236,.92);backdrop-filter:blur(10px);border-bottom:2px solid var(--ink)}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.02em;white-space:nowrap}
+.brand .mark{width:34px;height:34px;border:2px solid var(--ink);border-radius:9px;display:grid;place-items:center;background:var(--ink);color:var(--paper);font-size:17px;box-shadow:2px 2px 0 var(--fr)}
+.brand small{display:block;font-family:Inter,sans-serif;font-weight:500;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.search{flex:1;min-width:0;max-width:430px;position:relative}
+.search input{width:100%;padding:10px 14px 10px 38px;border:2px solid var(--ink);border-radius:999px;background:var(--card);
+  font-size:14.5px;color:var(--ink);outline:none;transition:box-shadow .15s}
+.search input:focus{box-shadow:3px 3px 0 var(--ma)}
+.search::before{content:"🔍";position:absolute;left:12px;top:50%;transform:translateY(-52%);font-size:14px;opacity:.65;pointer-events:none}
+.noalgo{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--ink2)}
+.noalgo b{color:var(--fr)}
+
+/* ---------- HERO ---------- */
+.hero{padding:56px 22px 34px;max-width:1240px;margin:0 auto;position:relative}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  background:var(--ink);color:var(--paper);padding:6px 13px;border-radius:999px}
+.hero h1{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(38px,6.4vw,74px);line-height:.98;letter-spacing:-.045em;margin:20px 0 0;font-weight:800;max-width:15ch}
+.hero h1 em{font-style:normal;color:var(--fr);position:relative;display:inline-block;
+  background-image:linear-gradient(180deg,transparent 58%,rgba(242,183,5,.55) 58%,rgba(242,183,5,.55) 88%,transparent 88%)}
+.hero p.lead{font-size:17.5px;max-width:56ch;color:var(--ink2);margin:20px 0 0}
+.hero .hand{font-family:Caveat,cursive;font-size:23px;color:var(--ma);transform:rotate(-2deg);display:inline-block;margin-top:16px}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.stat{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:10px 16px;box-shadow:3px 3px 0 var(--ink)}
+.stat b{font-family:'Bricolage Grotesque',sans-serif;font-size:24px;letter-spacing:-.03em;display:block;line-height:1}
+.stat span{font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2);font-weight:600}
+
+/* ---------- FILTERS ---------- */
+.filters{position:sticky;top:63px;z-index:50;background:rgba(244,236,220,.96);backdrop-filter:blur(8px);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.levels,.mats{max-width:1240px;margin:0 auto;padding:0 22px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.levels::-webkit-scrollbar,.mats::-webkit-scrollbar{display:none}
+.levels{padding-top:10px;padding-bottom:8px}
+.mats{padding-bottom:10px}
+.lvbtn{flex:0 0 auto;border:2px solid var(--ink);background:var(--card);border-radius:11px;padding:7px 16px;font-weight:700;font-size:14.5px;cursor:pointer;
+  box-shadow:2px 2px 0 var(--ink);transition:.12s;display:flex;flex-direction:column;align-items:center;min-width:64px}
+.lvbtn small{font-size:9.5px;font-weight:600;letter-spacing:.06em;color:var(--ink2);text-transform:uppercase}
+.lvbtn:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--ink)}
+.lvbtn.on{background:var(--ink);color:var(--paper)}
+.lvbtn.on small{color:#C9CFE0}
+.matbtn{flex:0 0 auto;border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:6px 13px;font-size:13px;font-weight:600;cursor:pointer;color:var(--ink2);
+  display:flex;align-items:center;gap:6px}
+.matbtn .dot{width:8px;height:8px;border-radius:50%}
+.matbtn.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.matbtn.on .dot{box-shadow:0 0 0 2px rgba(255,255,255,.35)}
+
+/* ---------- CONTENT ---------- */
+main{max-width:1240px;margin:0 auto;padding:8px 22px 60px}
+.lvhead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:34px 0 6px;flex-wrap:wrap}
+.lvhead h2{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.035em;margin:0}
+.lvhead .sub{color:var(--ink2);font-size:14px;max-width:62ch;margin:4px 0 0}
+.progwrap{min-width:190px}
+.progwrap .t{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);display:flex;justify-content:space-between;gap:10px}
+.bar{height:9px;border:1.5px solid var(--ink);border-radius:999px;background:var(--card);overflow:hidden;margin-top:5px}
+.bar i{display:block;height:100%;background:var(--sc);width:0;transition:width .3s}
+
+.matsec{margin-top:38px}
+.matsec>header{display:flex;align-items:center;gap:12px;padding-bottom:10px;border-bottom:2.5px solid var(--ink);margin-bottom:6px;flex-wrap:wrap}
+.matsec .ico{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:19px;border:2px solid var(--ink);color:#fff;box-shadow:2px 2px 0 var(--ink)}
+.matsec h3{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;margin:0;letter-spacing:-.02em}
+.matsec .att{font-size:13.5px;color:var(--ink2);margin:2px 0 0;max-width:70ch}
+.matsec .n{margin-left:auto;font-size:12px;font-weight:700;color:var(--ink2);background:var(--paper2);border:1.5px solid var(--line);padding:4px 10px;border-radius:999px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:16px;margin-top:16px}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:15px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;
+  transition:transform .14s,box-shadow .14s;box-shadow:2px 2px 0 rgba(22,33,60,.16)}
+.card:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.card.seen{opacity:.62}
+.card.seen .thumb::after{content:"VU";position:absolute;inset:0;display:grid;place-items:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+  font-size:26px;letter-spacing:.2em;color:#fff;background:rgba(22,33,60,.55)}
+.thumb{position:relative;aspect-ratio:16/9;background:var(--paper2);overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb .ph{position:absolute;inset:0;display:grid;place-items:center;font-size:30px}
+.dur{position:absolute;right:7px;bottom:7px;background:var(--ink);color:var(--paper);font-size:11px;font-weight:700;padding:2px 6px;border-radius:5px;letter-spacing:.02em}
+.play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:.15s;background:linear-gradient(0deg,rgba(22,33,60,.35),rgba(22,33,60,.05))}
+.card:hover .play{opacity:1}
+.play span{width:48px;height:48px;border-radius:50%;background:var(--paper);color:var(--ink);display:grid;place-items:center;font-size:17px;padding-left:4px;border:2px solid var(--ink)}
+.seenbtn{position:absolute;left:7px;top:7px;width:27px;height:27px;border-radius:50%;border:2px solid #fff;background:rgba(22,33,60,.55);color:#fff;font-size:13px;
+  cursor:pointer;display:grid;place-items:center;z-index:3}
+.seenbtn:hover{background:var(--sc);border-color:var(--sc)}
+.card.seen .seenbtn{background:var(--sc);border-color:var(--sc)}
+.body{padding:11px 13px 13px;display:flex;flex-direction:column;gap:5px;flex:1}
+.thm{font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ink2)}
+.card h4{font-size:14.5px;line-height:1.32;margin:0;font-weight:600;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.meta{margin-top:auto;display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--ink2);padding-top:6px}
+.meta .ch{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60%}
+.meta .lvls{margin-left:auto;display:flex;gap:3px}
+.meta .lvls i{font-style:normal;font-size:9.5px;font-weight:700;border:1px solid var(--line);border-radius:4px;padding:1px 4px;background:var(--paper2)}
+.empty{padding:60px 0;text-align:center;color:var(--ink2)}
+.empty b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:22px;color:var(--ink)}
+
+/* ---------- PROGRAMME ---------- */
+.panel{margin:70px 0 0;border:2.5px solid var(--ink);border-radius:20px;background:var(--card);overflow:hidden;box-shadow:6px 6px 0 var(--ink)}
+.panel>header{padding:24px 26px 18px;border-bottom:2px solid var(--ink);background:var(--paper2)}
+.panel>header .kicker{background:var(--fr);color:#fff}
+.panel>header h2{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(24px,3.2vw,34px);margin:12px 0 4px;letter-spacing:-.03em}
+.panel>header p{margin:0;color:var(--ink2);font-size:14.5px;max-width:75ch}
+.progtable{width:100%;border-collapse:collapse;font-size:14px}
+.progtable th{text-align:left;padding:11px 16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);border-bottom:1.5px solid var(--line);background:var(--paper)}
+.progtable td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.progtable tr:last-child td{border-bottom:none}
+.progtable td.m{font-weight:700;white-space:nowrap}
+.progtable ul{margin:0;padding-left:16px}
+.progtable li{margin:2px 0}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--paper2);border:1px solid var(--line)}
+
+/* ---------- CHAINES ---------- */
+.chans{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:13px;padding:22px 26px 26px}
+.chan{border:2px solid var(--ink);border-radius:13px;padding:13px 15px;background:var(--card);text-decoration:none;transition:.14s;display:block}
+.chan:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.chan b{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;display:block;letter-spacing:-.02em}
+.chan span{font-size:12.5px;color:var(--ink2);display:block;margin-top:3px}
+.chan em{font-style:normal;font-size:11px;font-weight:700;color:var(--ma);letter-spacing:.05em;text-transform:uppercase}
+
+/* ---------- METHODE ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;padding:22px 26px 26px}
+.step{border-left:4px solid var(--ar);padding:4px 0 4px 14px}
+.step b{font-family:'Bricolage Grotesque',sans-serif;font-size:15.5px;display:block;letter-spacing:-.01em}
+.step span{font-size:13.5px;color:var(--ink2)}
+
+/* ---------- MODAL ---------- */
+.modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:18px;background:rgba(16,22,40,.82);backdrop-filter:blur(6px)}
+.modal.open{display:grid}
+.mbox{width:min(920px,100%);background:var(--paper);border:3px solid var(--ink);border-radius:18px;overflow:hidden;box-shadow:8px 8px 0 rgba(0,0,0,.35);max-height:94vh;display:flex;flex-direction:column}
+.mtop{display:flex;align-items:center;gap:12px;padding:11px 15px;border-bottom:2px solid var(--ink);background:var(--paper2)}
+.mtop .t{font-weight:700;font-size:14.5px;line-height:1.25;flex:1;letter-spacing:-.01em}
+.mtop button{border:2px solid var(--ink);background:var(--card);border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:15px;font-weight:700}
+.mtop button:hover{background:var(--ink);color:var(--paper)}
+.video{aspect-ratio:16/9;background:#000}
+.video iframe{width:100%;height:100%;border:0;display:block}
+.mbot{display:flex;align-items:center;gap:12px;padding:11px 15px;flex-wrap:wrap;font-size:13px;color:var(--ink2)}
+.mbot a{font-weight:600;color:var(--ma)}
+.mbot .seen2{margin-left:auto;border:2px solid var(--ink);border-radius:8px;padding:6px 12px;background:var(--card);cursor:pointer;font-weight:700;font-size:12.5px}
+.mbot .seen2.on{background:var(--sc);color:#fff;border-color:var(--sc)}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:2px solid var(--ink);background:var(--paper2);padding:30px 22px;font-size:13px;color:var(--ink2)}
+footer .inner{max-width:1240px;margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+footer b{color:var(--ink)}
+
+@media(max-width:760px){
+  .filters{top:57px}
+  .noalgo{display:none}
+  .top{padding:9px 14px;gap:10px}
+  .brand{font-size:15.5px;letter-spacing:-.03em}
+  .brand small{display:none}
+  .brand .mark{width:29px;height:29px;font-size:14px;border-radius:8px}
+  .search input{font-size:13px;padding:8px 10px 8px 30px}
+  .search::before{left:10px;font-size:12px}
+  .hero{padding-top:34px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+  .card h4{font-size:13px}
+  .panel{box-shadow:4px 4px 0 var(--ink);border-radius:14px}
+  .progtable{font-size:12.5px}
+  .progtable td,.progtable th{padding:9px 10px}
+}
+@media print{
+  .top,.filters,.hero .stats,.play,.seenbtn,.modal,footer{display:none!important}
+  body{background:#fff}
+  .card{break-inside:avoid;box-shadow:none;border:1px solid #999}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<style>
+.tubebar{display:flex;gap:7px;overflow-x:auto;padding:9px 12px;background:#FFFDF7;border-bottom:2px solid #1B2440;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;font-family:Inter,system-ui,-apple-system,sans-serif;position:relative}
+.tubebar::-webkit-scrollbar{display:none}
+.tubebar a{flex:0 0 auto;display:flex;align-items:center;gap:6px;padding:7px 13px;border:2px solid #1B2440;border-radius:999px;
+  background:#fff;color:#1B2440;font-size:12.5px;font-weight:700;line-height:1;text-decoration:none;white-space:nowrap;
+  box-shadow:2px 2px 0 #1B2440;transition:transform .1s,box-shadow .1s}
+.tubebar a:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 #1B2440}
+.tubebar a:active{transform:translateY(2px);box-shadow:none}
+.tubebar a.on{background:#1B2440;color:#fff;box-shadow:2px 2px 0 #F5A623}
+.tubebar a.on .num{color:#F5A623}
+.tubebar .sep{flex:0 0 auto;width:1px;align-self:stretch;background:#E4DACA;margin:0 2px}
+.tubebar{position:relative}
+.tubebar .fade{position:absolute;right:0;top:0;bottom:0;width:36px;pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,253,247,0),#FFFDF7 78%);border-radius:0}
+@media(max-width:620px){.tubebar{padding:8px 10px;gap:6px}.tubebar a{padding:6px 11px;font-size:11.5px}}
+</style>
+<nav class="tubebar" aria-label="Navigation entre les sites"><a href="https://hassanijacques-boop.github.io/tube/" title="l'ensemble des niveaux"><span class="num">🏠</span>Tous</a><span class="sep"></span><a href="https://hassanijacques-boop.github.io/ecoletube/" title="CP → CM2"><span class="num">🎒</span>École</a><a href="https://hassanijacques-boop.github.io/college-tube/" title="6e → 3e"><span class="num">🏫</span>Collège</a><a href="https://hassanijacques-boop.github.io/lycee-tube/" title="2de → Tle"><span class="num">🎓</span>Lycée</a><a href="https://hassanijacques-boop.github.io/bts-tube/" title="GME"><span class="num">💼</span>BTS</a><a href="https://hassanijacques-boop.github.io/gtla-tube/" title="BTS GTLA"><span class="num">📦</span>GTLA</a><a href="https://hassanijacques-boop.github.io/reseaux-tube/" title="TSRS"><span class="num">🖧</span>Réseaux</a><a href="https://hassanijacques-boop.github.io/defi-ecole/" title="réviser en jouant"><span class="num">🎯</span>Défis</a><a href="https://hassanijacques-boop.github.io/defi-ecole/trivial.html" title="Le Trivial des questions générales"><span class="num">🎲</span>Trivial</a><span class="fade"></span></nav>
+
+<header class="top">
+  <div class="brand"><span class="mark">G</span><span>GTLA TUBE<small>Transport &amp; logistique</small></span></div>
+  <div class="search"><input id="q" type="search" placeholder="Chercher : incoterms, WMS, douane, stock, CMR…" autocomplete="off"></div>
+  
+  <div class="noalgo"><span>Classement <b>100 % humain</b></span> · <span id="seenPct">0 % vu</span></div>
+</header>
+
+<section class="hero">
+  <div class="kicker">📦 Le BTS GTLA, vidéo par vidéo</div>
+  <h1>Toutes les vidéos pour réviser. <em>Classées à la main.</em></h1>
+  <p class="lead">Pas de fil de recommandation, pas de Shorts qui défilent, pas de « tu pourrais aussi aimer ». Chaque vidéo répond à <strong>un point précis du programme</strong> — et elle est rangée à sa place, par matière et par niveau.</p>
+  <div class="hand">→ un clic, on regarde, on coche, on passe à la suite.</div>
+  <div class="stats">
+    <div class="stat"><b id="sVid">—</b><span>vidéos vérifiées</span></div>
+  <div class="stat"><b id="sCh">—</b><span>chaînes retenues</span></div>
+    <div class="stat"><b id="sTh">—</b><span>points du programme</span></div>
+    <div class="stat"><b>0</b><span>algorithme</span></div>
+  </div>
+</section>
+
+</section>
+
+<div class="filters">
+  <div class="levels" id="levels"></div>
+  <div class="mats" id="mats"></div>
+</div>
+
+<main>
+  <div class="lvhead">
+    <div>
+      <h2 id="lvTitle">1re année</h2>
+      <p class="sub" id="lvSub"></p>
+    </div>
+    <div class="progwrap">
+      <div class="t"><span>Vidéos vues</span><span id="progTxt">0 / 0</span></div>
+      <div class="bar"><i id="progBar"></i></div>
+    </div>
+  </div>
+  <div id="list"></div>
+
+  <section class="panel" id="programme">
+    <header>
+      <div class="kicker">📌 Le programme officiel</div>
+      <h2 id="progH">Ce qu'on attend de toi à la fin de la 1re année</h2>
+      <p id="progP">Les domaines et les attendus, matière par matière. C'est la carte qui permet de savoir <em>où</em> on en est — et quelle vidéo regarder ensuite.</p>
+    </header>
+    <div id="progBody"></div>
+  </section>
+
+  <section class="panel" id="chaines">
+    <header>
+      <div class="kicker">🎬 Les chaînes</div>
+      <h2>Les 12 chaînes qui font le travail</h2>
+      <p>Toutes gratuites, toutes en français. Elles sont citées sur chaque carte : on sait toujours qui parle à l'enfant.</p>
+    </header>
+    <div class="chans" id="chans"></div>
+  </section>
+
+  <section class="panel" id="methode">
+    <header>
+      <div class="kicker">⏱️ La méthode</div>
+      <h2>15 minutes par jour, et ça suffit</h2>
+      <p>Une vidéo ne remplace pas un exercice — elle sert à <strong>comprendre</strong> puis à <strong>refaire</strong>. Voilà l'ordre qui marche, en classe comme à la maison.</p>
+    </header>
+    <div class="steps">
+      <div class="step"><b>1. On regarde en entier</b><span>Une seule fois, sans pause. On ne note rien.</span></div>
+      <div class="step"><b>2. On refait à l'oral</b><span>« Explique-moi avec tes mots. » Si l'enfant raconte, il a compris.</span></div>
+      <div class="step"><b>3. On revoit le passage</b><span>Retour arrière sur le moment clé, puis on refait l'exemple donné.</span></div>
+      <div class="step"><b>4. On s'entraîne</b><span>3 exercices écrits sur le même point. Pas 30 : trois, bien faits.</span></div>
+      <div class="step"><b>5. On coche</b><span>La case ✓ garde la trace de ce qui est acquis. On y revient 3 jours après.</span></div>
+    </div>
+    <div style="padding:0 26px 26px">
+      <div class="callout" style="border-left:4px solid var(--fr);padding:6px 0 6px 14px;color:var(--ink2);font-size:13.5px">
+        <strong style="color:var(--ink)">Ce qui n'est pas ici, et pourquoi.</strong> L'EPS ne s'apprend pas devant un écran : elle se pratique. Les langues vivantes non plus ne se réduisent pas à du vocabulaire — les vidéos servent d'amorçage, le reste se fait en parlant.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="inner">
+    <div style="flex:1 0 100%;order:-1;margin:0 0 14px"><a href="https://hassanijacques-boop.github.io/tube/" style="font-weight:700;color:var(--ink);border-bottom:2px solid var(--fr);padding-bottom:1px">← Tous les sites</a></div>
+    <div><b>GTLA Tube</b> — bibliothèque de vidéos pour le BTS GTLA, classée à la main.<br>Transport routier, maritime, aérien, logistique, stocks, douane, supply chain.<br><span style="font-size:12px">Version 1 — 10 novembre 2026 · 54 liens testés un par un.</span></div>
+    <div>Les vidéos restent la propriété de leurs auteurs.<br>Les liens ouvrent YouTube ; aucune donnée n'est collectée.<br>Progression enregistrée uniquement sur cet appareil.</div>
+  </div>
+</footer>
+
+<div class="modal" id="modal">
+  <div class="mbox">
+    <div class="mtop"><div class="t" id="mTitle"></div><button id="mClose" aria-label="Fermer">✕</button></div>
+    <div class="video"><iframe id="mFrame" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    <div class="mbot">
+      <span id="mMeta"></span>
+      <a id="mLink" href="#" target="_blank" rel="noopener">Ouvrir sur YouTube ↗</a>
+      <button class="seen2" id="mSeen">✓ Marquer comme vue</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const VIDEOS = [{"i":"JztZseL_p-g","t":"Poids et dimensions à maîtriser pour l’examen Capacité de transport +3,5T","m":"Transport routier","th":"Réglementation","c":"Licence Transport","d":749,"lv":["1re année"],"sc":8},{"i":"KKFYPRarW1o","t":"Comment fixer son prix de vente ?","m":"Transport routier","th":"Réglementation","c":"Licence Transport","d":1387,"lv":["1re année"],"sc":8},{"i":"hmbWmc1TYn0","t":"Cours gratuit / Cout de revient - Capacité de transport lourd","m":"Transport routier","th":"Réglementation","c":"LYAD ACADEMY","d":2121,"lv":["1re année"],"sc":4},{"i":"EnGo9V5bRq0","t":"Chapitre 4 « La CMR Lettre de voiture internationale »","m":"Transport routier","th":"Documents","c":"NELLAPP","d":91,"lv":["1re année"],"sc":4},{"i":"taKKbIjuh9s","t":"TOURNEES DE LIVRAISON","m":"Transport routier","th":"Tournées","c":"LOGISTIQUE GESTION LP CEVERT","d":745,"lv":["1re année"],"sc":11},{"i":"mzhy-r4iXqc","t":"Calcul Poids taxable aérien et routier en BTS CI MOI","m":"Transport aérien","th":"Fret aérien","c":"Akadabra Academy BTS CI RCI MOI DCI CEJM","d":1180,"lv":["1re année"],"sc":9},{"i":"tTVuzup2guk","t":"Introduction à la logistique🚛❤🛳🚚 (Formation logistique) Ep1","m":"Logistique","th":"Introduction","c":"Académie de la supply chain management. SCOPMA","d":793,"lv":["1re année"],"sc":10},{"i":"MoGfMBxvOII","t":"C'est quoi la Supply Chain : Définition Simple","m":"Logistique","th":"Introduction","c":"AbcSupplyChain FR","d":598,"lv":["1re année"],"sc":9},{"i":"1t_HBS8GUYM","t":"La logistique, c'est quoi ?","m":"Logistique","th":"Introduction","c":"Infonet","d":132,"lv":["1re année"],"sc":5},{"i":"xw6n_Odh3SM","t":"Faut-il Ouvrir un Nouvel Entrepôt (ou en Fermer) ? Analyse coût complet logistique implantation","m":"Logistique","th":"Entrepôt","c":"AbcSupplyChain FR","d":1168,"lv":["1re année"],"sc":11},{"i":"48v9CwcDtN4","t":"STOCK LAYOUT OPTIMIZATION","m":"Logistique","th":"Entrepôt","c":"LOGISTIQUE GESTION LP CEVERT","d":566,"lv":["1re année"],"sc":9},{"i":"cueJwZi6Wxs","t":"WMS [Warehouse Management System] Warehouse Management Software","m":"Logistique","th":"WMS","c":"ArchiveLOG TV I Cours de Logistique & Transport","d":996,"lv":["1re année"],"sc":9},{"i":"ctzriZubQxY","t":"Module 4 : Warehouse Management System","m":"Logistique","th":"WMS","c":"Warehouse manager","d":552,"lv":["1re année"],"sc":9},{"i":"jzxLpC4QJGk","t":"Cross-docking ou entreposage : aller jusqu'au bout ou y aller lentement ?","m":"Logistique","th":"Cross docking","c":"Simple Understanding","d":189,"lv":["1re année"],"sc":6},{"i":"eIOs7a7XBPs","t":"La méthode des coûts à base d'activité ou Activity Based Costing","m":"Gestion des stocks","th":"Méthode ABC","c":"5 minutes pour réussir","d":591,"lv":["1re année"],"sc":10},{"i":"4N9fp17D0NA","t":"La Comptabilisation des Variations de Stocks","m":"Gestion des stocks","th":"Inventaire","c":"5 minutes pour réussir","d":234,"lv":["1re année"],"sc":8},{"i":"9Njv8-wSobs","t":"Les fiches de stocks : la méthode PEPS ou FIFO","m":"Gestion des stocks","th":"Inventaire","c":"5 minutes pour réussir","d":280,"lv":["1re année"],"sc":8},{"i":"5lpBEDofEWs","t":"Les fiches de stocks :la méthode du CMUP après chaque entrée","m":"Gestion des stocks","th":"Inventaire","c":"5 minutes pour réussir","d":302,"lv":["1re année"],"sc":8},{"i":"ULUfXR3uhRI","t":"Droit des transports : La responsabilité du transporteur","m":"Économie et droit","th":"Droit du transport","c":"Samira Benboubker","d":1466,"lv":["1re année"],"sc":7},{"i":"2MFMV-Wqvpk","t":"Droit des transports : le contrat de transport","m":"Économie et droit","th":"Droit du transport","c":"Samira Benboubker","d":3213,"lv":["1re année"],"sc":7},{"i":"drW9MHwYQEM","t":"Un contrat de transport, c'est quoi ?","m":"Économie et droit","th":"Droit du transport","c":"Infonet","d":96,"lv":["1re année"],"sc":7},{"i":"EK790gVYK80","t":"International Transport Contracts & Documents","m":"Économie et droit","th":"Contrat","c":"ArchiveLOG TV I Cours de Logistique & Transport","d":1561,"lv":["1re année"],"sc":9},{"i":"iXeTtfEvbDE","t":"Import Export INCOTERM multimodaux","m":"Douane","th":"Dédouanement","c":"NELLAPP","d":773,"lv":["1re année"],"sc":4},{"i":"DzBMgO8Qs7A","t":"L'import-export, c'est quoi ?","m":"Douane","th":"Commerce international","c":"Infonet","d":101,"lv":["1re année"],"sc":5},{"i":"E2KfZRhZ_TE","t":"Comment Devenir Supply Chain Manager : 6 Piliers","m":"Supply chain","th":"Bases","c":"AbcSupplyChain FR","d":937,"lv":["2e année"],"sc":9},{"i":"kiVqPvZNr50","t":"Le métier de Supply Chain Manager","m":"Supply chain","th":"Bases","c":"AFT","d":165,"lv":["2e année"],"sc":7},{"i":"8bPPq3WwA3E","t":"Les 10 Meilleurs KPIs en Supply Chain & Logistique","m":"Supply chain","th":"KPI","c":"AbcSupplyChain FR","d":1608,"lv":["2e année"],"sc":9},{"i":"D9dD-SCkpgI","t":"Formation Complète KPI & Reporting Logistique","m":"Supply chain","th":"KPI","c":"Warehouse manager","d":1905,"lv":["2e année"],"sc":9},{"i":"Hag78PCXn9Y","t":"Le key performance indicator (KPI), c'est quoi ?","m":"Supply chain","th":"KPI","c":"Infonet","d":114,"lv":["2e année"],"sc":5},{"i":"6nvncEOGBV8","t":"LE CONTRAT DE TRANSPORT : CALCUL D'UNE INDEMNITE EN CAS DE LITIGE","m":"Supply chain","th":"Litiges","c":"David Ramirez    Professeur en conduite routière","d":328,"lv":["2e année"],"sc":7},{"i":"nCGDJsCaK84","t":"Le management logistique et ses objectifs","m":"Management","th":"Entreprise","c":"Académie de la supply chain management. SCOPMA","d":889,"lv":["2e année"],"sc":8},{"i":"S9favTuM_SU","t":"Transport and Logistics Course S1: Maritime Transport","m":"Management","th":"Entreprise","c":"Samira Benboubker","d":2205,"lv":["2e année"],"sc":5},{"i":"5BVs7aN9V08","t":"Comment calculer vos coûts de transport pour gagner en rentabilité ?","m":"Management","th":"Coûts","c":"AntsRoute • Logiciel d'optimisation de tournées","d":657,"lv":["2e année"],"sc":8},{"i":"UfRzfJ3FOqE","t":"Comment intégrer un logiciel TMS dans votre entreprise de transport ? Les 5 étapes clés.","m":"Outils","th":"TMS","c":"AntsRoute • Logiciel d'optimisation de tournées","d":477,"lv":["2e année"],"sc":6},{"i":"vKV8EYBdkx8","t":"SAP ABAP - Les transports","m":"Outils","th":"TMS","c":"Key User Training FR","d":780,"lv":["2e année"],"sc":4},{"i":"odgnFDYGbBk","t":"L'ERP expliqué simplement : comprendre SAP et ses fonctionnalités","m":"Outils","th":"ERP","c":"Key User Training FR","d":254,"lv":["2e année"],"sc":4},{"i":"KVnaaCoDyYI","t":"📊 Module 7 : Excel pour la Logistique","m":"Outils","th":"Excel","c":"Warehouse manager","d":525,"lv":["2e année"],"sc":11},{"i":"sOyB4adFKkw","t":"Tableau de Bord Logistique : Les KPI Essentiels pour Piloter les Stocks – Module 4","m":"Outils","th":"Excel","c":"Warehouse manager","d":453,"lv":["2e année"],"sc":9},{"i":"2dEu0OS46aA","t":"A[3] Anglais maritime : Glossaire vidéo de A à Z","m":"Anglais","th":"Vocabulaire","c":"UASUPPLY","d":134,"lv":["2e année"],"sc":5},{"i":"cBK6LKh4_Ls","t":"A[7] Anglais maritime : Glossaire vidéo de A à Z","m":"Anglais","th":"Vocabulaire","c":"UASUPPLY","d":125,"lv":["2e année"],"sc":5},{"i":"_HIIoulVJUw","t":"02. Anglais maritime ATW","m":"Anglais","th":"Vocabulaire","c":"UASUPPLY","d":357,"lv":["2e année"],"sc":5},{"i":"MtQNAV34JKQ","t":"A[2] Anglais maritime : Glossaire vidéo de A à Z","m":"Anglais","th":"Vocabulaire","c":"UASUPPLY","d":134,"lv":["2e année"],"sc":5},{"i":"Xv88okuPl6c","t":"Piloter un Entrepôt par les Données","m":"Logistique","th":"Entreposage","c":"Warehouse manager","d":1421,"lv":["2e année"],"sc":9},{"i":"Q4oOdo3OUG0","t":"Le métier de responsable d'entrepôt","m":"Logistique","th":"Entreposage","c":"AFT","d":144,"lv":["2e année"],"sc":7},{"i":"iwpLbnHW7SA","t":"🎙️ Réussir sa capacité de transport de plus de 3,5 tonnes – Épisode 1 : Par où commencer ?","m":"Transport routier","th":"Capacité","c":"LYAD ACADEMY","d":975,"lv":["1re année"],"sc":6},{"i":"FzfX8PxasJ8","t":"FORMATION COMPLÈTE COMMISSIONNAIRE DE TRANSPORT 2026","m":"Transport routier","th":"Affrètement","c":"Formation Commissionnaire de Transport","d":4702,"lv":["1re année"],"sc":8},{"i":"EFqGoZuwMl0","t":"Calcul du coût de revient – Examen capacité de transport 2025","m":"Transport routier","th":"Coûts","c":"Licence Transport","d":158,"lv":["1re année"],"sc":8},{"i":"Gi_I85CEue4","t":"Le Coût de Revient","m":"Transport routier","th":"Coûts","c":"5 minutes pour réussir","d":493,"lv":["1re année"],"sc":8},{"i":"mxm_YByqQ7E","t":"Calcul Stock de Sécurité : 6 Meilleures Formules expliquées sur Excel","m":"Gestion des stocks","th":"Formules","c":"AbcSupplyChain FR","d":997,"lv":["1re année"],"sc":11},{"i":"dDUHhqOT9hY","t":"Les différents niveaux de stocks : stock d'alerte, stock de sécurité, stock minimum, stock maximum","m":"Gestion des stocks","th":"Formules","c":"5 minutes pour réussir","d":287,"lv":["1re année"],"sc":8},{"i":"FMj6cXB4dNA","t":"Les coûts de stockage : les coûts de possession, les coûts de passation, les coûts totaux","m":"Gestion des stocks","th":"Coûts","c":"5 minutes pour réussir","d":369,"lv":["1re année"],"sc":10},{"i":"e1i__EnfNmU","t":"GESTION DES STOCKS - COÛT DE PASSATION - COÛT DE POSSESSION","m":"Gestion des stocks","th":"Coûts","c":"LOGISTIQUE GESTION LP CEVERT","d":221,"lv":["1re année"],"sc":9},{"i":"ziKuRjR6kVw","t":"Supply Chain: EP 2 Ordering Cost & Holding Cost","m":"Gestion des stocks","th":"Coûts","c":"Académie de la supply chain management. SCOPMA","d":302,"lv":["1re année"],"sc":8},{"i":"yCy9FEztG-c","t":"KPI Fiabilité du Stock : Comment le suivre et l'améliorer ?","m":"Outils","th":"Excel","c":"AbcSupplyChain FR","d":988,"lv":["2e année"],"sc":11}];
+const PROG   = {"1re année":{"Transport routier":["Le cadre juridique du transport routier de marchandises","Les temps de conduite et de repos : ce qu'on te demandera de calculer","La lettre de voiture et le CMR : qui engage qui","Construire un prix de transport : les postes de coût"],"Transport maritime":["Le conteneur : 20' et 40', FCL et LCL","Le connaissement (B/L) : le document qui vaut titre","Les Incoterms 2020 : qui paie quoi, où le risque transfère","Les grands ports et les routes maritimes"],"Transport aérien":["Le fret aérien : quand il est rentable","La LTA et la notion de poids taxable"],"Transport ferroviaire":["Le fret ferroviaire en France : offres et acteurs"],"Transport":["Le transport multimodal : enchaîner les modes sans casser la chaîne"],"Logistique":["Qu'est-ce que la logistique ? Flux physiques, flux d'information","Implanter un entrepôt : zones, allées, adressage","La préparation de commandes : picking et colisage","Le WMS : ce qu'il pilote réellement","Le cross-docking : supprimer le stockage"],"Gestion des stocks":["Pourquoi stocker : les 4 raisons et les 4 coûts","La méthode ABC : classer pour prioriser","Stock de sécurité et point de commande","Inventaire et valorisation (FIFO, coût moyen pondéré)"],"Économie et droit":["L'économie du transport : offre, demande, externalités","Le contrat de transport : obligations des parties","La responsabilité du transporteur : les cas d'exonération"],"Douane":["Le dédouanement : les étapes d'une déclaration","La nomenclature SH : trouver le bon code","Le commerce international : documents et circuits"],"Sécurité":["L'ADR : classes de danger et signalisation","La chaîne du froid : températures, rupture, traçabilité"]},"2e année":{"Supply chain":["La supply chain : du fournisseur au client final","Piloter les flux : flux poussés, tirés, tendus","Les KPI logistiques : taux de service, rotation, coût par ligne","La logistique inverse : retours, retours produits, recyclage"],"Management":["Manager une équipe d'exploitation","Le calcul de coût complet d'une opération","Conduire un projet : cadrage, planning, indicateurs","Le transport dans la stratégie de l'entreprise"],"Outils":["Le TMS : à quoi il sert dans l'exploitation","L'ERP et la chaîne de gestion intégrée","Excel appliqué : tableaux de bord et calculs de coût"],"Culture générale":["La synthèse de documents : méthode pas à pas","L'écrit personnel : argumenter sans réciter","Construire une problématique en 10 minutes"],"Anglais":["Le vocabulaire du transport maritime","Rédiger un mail professionnel en anglais","Comprendre un document technique anglais"],"Transport maritime":["Le transport maritime international : acteurs et contrats","Incoterms et documents : le cas pratique"],"Logistique":["Exploiter un entrepôt au quotidien","Les litiges transport : constater, prouver, réclamer"]}};
+const LEVELS = ["1re année","2e année"];
+const MORDER = ["Transport routier","Transport maritime","Logistique","Gestion des stocks","Douane","Économie et droit","Supply chain","Management","Outils","Anglais","Culture générale","Transport aérien","Transport ferroviaire","Transport","Sécurité"];
+
+const $ = s => document.querySelector(s);
+const state = {lv:"1re année", mat:"Tout", q:""};
+let seen = new Set(JSON.parse(localStorage.getItem("ecoletube_vus")||"[]"));
+const saveSeen = () => localStorage.setItem("ecoletube_vus", JSON.stringify([...seen]));
+
+function fmt(s){ if(!s) return ""; const m=Math.floor(s/60); const r=Math.round(s%60); return m+":"+String(r).padStart(2,"0"); }
+function matColor(m){ const d=document.querySelector('.matbtn[data-m="'+m+'"] .dot'); return d? d.style.background : "#16213C"; }
+
+/* ---- filtres niveau ---- */
+LEVELS.forEach(l=>{
+  const b=document.createElement("button");
+  b.className="lvbtn"; b.dataset.lv=l;
+  const p=PROG[l]||{};
+  b.innerHTML = l+"<small>"+(p.short||"cycle")+"</small>";
+  b.onclick=()=>{state.lv=l; state.mat="Tout"; render();};
+  $("#levels").appendChild(b);
+});
+const ball=document.createElement("button");
+ball.className="lvbtn"; ball.dataset.lv="Tout"; ball.innerHTML="TOUT<small>2 années</small>";
+ball.onclick=()=>{state.lv="Tout"; state.mat="Tout"; render();};
+$("#levels").appendChild(ball);
+
+/* ---- filtres matière ---- */
+function buildMats(){
+  const mats = state.lv==="Tout" ? MORDER : (PROG[state.lv]? PROG[state.lv].matieres.map(x=>x.n) : []);
+  const box=$("#mats"); box.innerHTML="";
+  const mk=(n,label,color,icon)=>{
+    const b=document.createElement("button");
+    b.className="matbtn"+(state.mat===n?" on":""); b.dataset.m=n;
+    b.innerHTML='<span class="dot" style="background:'+color+'"></span>'+(icon?icon+" ":"")+label;
+    b.onclick=()=>{state.mat=n; render();};
+    box.appendChild(b);
+  };
+  mk("Tout","Tout","#16213C","");
+  mats.forEach(n=>{
+    const src = (PROG[state.lv]&&PROG[state.lv].matieres.find(x=>x.n===n)) || {c:"#16213C",e:""};
+    mk(n,n,src.c,src.e);
+  });
+}
+
+/* ---- rendu principal ---- */
+function render(){
+  buildMats();
+  document.querySelectorAll(".lvbtn").forEach(b=>b.classList.toggle("on",b.dataset.lv===state.lv));
+
+  const q = state.q.trim().toLowerCase();
+  let list = VIDEOS.filter(v=>{
+    if(state.lv!=="Tout" && !v.lv.includes(state.lv)) return false;
+    if(state.mat!=="Tout" && v.m!==state.mat) return false;
+    if(q){
+      const hay=(v.t+" "+v.c+" "+v.th+" "+v.m).toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  const title = state.lv==="Tout" ? "Tout le primaire" : state.lv;
+  $("#lvTitle").textContent = title;
+  const p = PROG[state.lv];
+  $("#lvSub").textContent = state.lv==="Tout"
+    ? "Toutes les vidéos, du CP au CM2. Filtre par matière pour réduire."
+    : (p? p.resume : "");
+
+  // progression
+  const tot = list.length, vus = list.filter(v=>seen.has(v.i)).length;
+  const pct = tot? Math.round(100*vus/tot):0;
+  $("#progTxt").textContent = vus+" / "+tot;
+  $("#progBar").style.width = pct+"%";
+  $("#seenPct").textContent = pct+" % vu";
+
+  const box=$("#list"); box.innerHTML="";
+  if(!list.length){
+    box.innerHTML='<div class="empty"><b>Aucune vidéo pour cette recherche.</b>Essaie un mot plus simple : « fractions », « eau », « accord ».</div>';
+    renderProgramme(); return;
+  }
+  const groups={};
+  list.forEach(v=>{ (groups[v.m]=groups[v.m]||[]).push(v); });
+  Object.keys(groups).sort((a,b)=>MORDER.indexOf(a)-MORDER.indexOf(b)).forEach(m=>{
+    const meta = (state.lv!=="Tout" && p && p.matieres.find(x=>x.n===m)) || {c:"#16213C",e:"•",att:""};
+    const sec=document.createElement("section"); sec.className="matsec";
+    sec.innerHTML='<header><div class="ico" style="background:'+meta.c+'">'+meta.e+'</div>'+
+      '<div><h3>'+m+'</h3>'+(meta.att?'<p class="att">'+meta.att+'</p>':'')+'</div>'+
+      '<div class="n">'+groups[m].length+' vidéo'+(groups[m].length>1?'s':'')+'</div></header>';
+    const g=document.createElement("div"); g.className="grid";
+    groups[m].forEach(v=>g.appendChild(card(v)));
+    sec.appendChild(g); box.appendChild(sec);
+  });
+  renderProgramme();
+}
+
+function card(v){
+  const el=document.createElement("article");
+  el.className="card"+(seen.has(v.i)?" seen":"");
+  el.innerHTML=
+    '<div class="thumb"><span class="ph">▶</span><img loading="lazy" src="https://i.ytimg.com/vi/'+v.i+'/mqdefault.jpg" alt="" onerror="this.style.opacity=0">'+
+      '<span class="dur">'+fmt(v.d)+'</span>'+
+      '<button class="seenbtn" title="Marquer comme vue">✓</button>'+
+      '<div class="play"><span>▶</span></div></div>'+
+    '<div class="body"><div class="thm">'+v.th+'</div><h4>'+v.t+'</h4>'+
+      '<div class="meta"><span class="ch">'+v.c+'</span><span class="lvls">'+v.lv.map(l=>'<i>'+l+'</i>').join("")+'</span></div></div>';
+  el.onclick=e=>{
+    if(e.target.classList.contains("seenbtn")){
+      e.stopPropagation();
+      seen.has(v.i)? seen.delete(v.i): seen.add(v.i);
+      saveSeen(); el.classList.toggle("seen", seen.has(v.i)); updateProg(); return;
+    }
+    openVideo(v);
+  };
+  return el;
+}
+
+function updateProg(){
+  const q=state.q.trim().toLowerCase();
+  const list=VIDEOS.filter(v=>(state.lv==="Tout"||v.lv.includes(state.lv))&&(state.mat==="Tout"||v.m===state.mat)&&
+    (!q||(v.t+" "+v.c+" "+v.th+" "+v.m).toLowerCase().includes(q)));
+  const vus=list.filter(v=>seen.has(v.i)).length;
+  $("#progTxt").textContent=vus+" / "+list.length;
+  const pct=list.length?Math.round(100*vus/list.length):0;
+  $("#progBar").style.width=pct+"%"; $("#seenPct").textContent=pct+" % vu";
+}
+
+/* ---- modal ---- */
+let current=null;
+function openVideo(v){
+  current=v;
+  $("#mTitle").textContent=v.t;
+  $("#mMeta").textContent=v.c+" · "+fmt(v.d)+" · "+v.th+" · "+v.lv.join(", ");
+  $("#mFrame").src="https://www.youtube-nocookie.com/embed/"+v.i+"?autoplay=1&rel=0&modestbranding=1";
+  $("#mLink").href="https://www.youtube.com/watch?v="+v.i;
+  $("#mSeen").classList.toggle("on",seen.has(v.i));
+  $("#mSeen").textContent = seen.has(v.i)? "✓ Vue" : "✓ Marquer comme vue";
+  $("#modal").classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeVideo(){
+  $("#modal").classList.remove("open");
+  $("#mFrame").src="";
+  document.body.style.overflow="";
+  render();
+}
+$("#mClose").onclick=closeVideo;
+$("#modal").onclick=e=>{ if(e.target.id==="modal") closeVideo(); };
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&current) closeVideo(); });
+$("#mSeen").onclick=()=>{
+  if(!current) return;
+  seen.has(current.i)? seen.delete(current.i): seen.add(current.i);
+  saveSeen();
+  $("#mSeen").classList.toggle("on",seen.has(current.i));
+  $("#mSeen").textContent = seen.has(current.i)? "✓ Vue" : "✓ Marquer comme vue";
+};
+
+/* ---- programme ---- */
+function renderProgramme(){
+  const p=PROG[state.lv];
+  if(!p){ $("#progH").textContent="Le programme, du CP au CM2"; $("#progBody").innerHTML=
+    '<div class="chans"><div class="chan"><b>Choisis un niveau</b><span>Le programme s\'affiche niveau par niveau : CP, CE1, CE2, CM1 ou CM2.</span></div></div>'; return; }
+  $("#progH").textContent="Ce que l'élève doit savoir à la fin du "+state.lv;
+  let h='<table class="progtable"><thead><tr><th style="width:150px">Matière</th><th>Domaines</th><th style="width:32%">Ce qu\'on attend</th></tr></thead><tbody>';
+  p.matieres.forEach(m=>{
+    h+='<tr><td class="m"><span class="pill"><span style="color:'+m.c+'">●</span>'+m.n+'</span></td><td><ul>'+
+       m.dom.map(d=>'<li><b>'+d[0]+'</b> — '+d[1]+'</li>').join("")+'</ul></td><td>'+m.att+'</td></tr>';
+  });
+  h+='</tbody></table>';
+  $("#progBody").innerHTML=h;
+}
+
+/* ---- chaînes ---- */
+const CH = [["AbcSupplyChain FR","La chaîne logistique expliquée simplement : entrepôt, flux, coûts. Le meilleur point de départ français.","https://www.youtube.com/@AbcSupplyChain"],["ArchiveLOG TV","Cours de logistique et de transport, structurés comme un programme : WMS, flux, exploitation.","https://www.youtube.com/@archivelog"],["Warehouse manager","Tout ce qui se passe dans un entrepôt : implantation, réception, préparation, indicateurs.","https://www.youtube.com/@warehousemanager"],["Formation Logistique-Transport Bac Pro","Le programme transport-logistique expliqué pas à pas, très proche du référentiel BTS.","https://www.youtube.com/@formationlogistiquetransport"],["LOGISTIQUE GESTION LP CEVERT","Cours et exercices de gestion : stocks, tournées, coûts. Format court et efficace.","https://www.youtube.com/@logistiquegestion"],["Licence Transport","Transport routier et capacité professionnelle : réglementation et calculs de prix.","https://www.youtube.com/@licencetransport"],["5 minutes pour réussir","Notions de gestion et de comptabilité en 5 minutes : parfait pour réviser entre deux cours.","https://www.youtube.com/@5minutespourreussir"],["Académie de la supply chain (SCOPMA)","Supply chain et logistique, avec un angle professionnel et des cas concrets.","https://www.youtube.com/@academiesupplychain"],["Adopte Un Conteneur","Conteneurs, fret maritime et import : le vocabulaire et les pièges du commerce international.","https://www.youtube.com/@AdopteUnConteneur"]];
+$("#chans").innerHTML=CH.map(c=>'<a class="chan" href="'+c[2]+'" target="_blank" rel="noopener"><em>chaîne</em><b>'+c[0]+'</b><span>'+c[1]+'</span></a>').join("");
+
+/* ---- recherche ---- */
+let tm;
+$("#q").addEventListener("input",e=>{
+  clearTimeout(tm);
+  tm=setTimeout(()=>{ state.q=e.target.value; render(); },140);
+});
+
+/* ---- init ---- */
+$("#sVid").textContent = VIDEOS.length;
+$("#sCh").textContent = new Set(VIDEOS.map(v=>v.c)).size;
+$("#sTh").textContent = new Set(VIDEOS.map(v=>v.m+"|"+v.th)).size;
+render();
+</script>
+</body>
+</html>
